@@ -141,9 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const typingEl = document.getElementById('typing-text');
   if (typingEl) {
     new TypingEffect(typingEl, [
-      'Production AI Agent Architect',
+      'AI Agent Architect',
       'Autonomous Web Agent Engineer',
-      'LLM Orchestration Specialist',
+      'LLM Orchestrator',
       'Full-Stack Web AI Systems Dev',
       'Multi-Agent System Engineer'
     ]);
