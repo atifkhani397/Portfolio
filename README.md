@@ -133,8 +133,8 @@ My portfolio/
 ## 📬 Connect & Contact
 
 <p align="left">
-  <a href="mailto:alex.dev@engineer.io">
-    <img src="https://img.shields.io/badge/Email-alex.dev%40engineer.io-db2777?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Badge">
+  <a href="mailto:atifkhani397@gmail.com">
+    <img src="https://img.shields.io/badge/Email-atifkhani397%40gmail.com-db2777?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Badge">
   </a>
   <a href="https://github.com/atifkhani397">
     <img src="https://img.shields.io/badge/GitHub-atifkhani397-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge">
@@ -150,5 +150,5 @@ My portfolio/
 ---
 
 <div align="center">
-  <sub>Built with ❤️ using HTML5, CSS3, and Vanilla JavaScript. &copy; 2026 Alex Dev. All rights reserved.</sub>
+  <sub>Built with ❤️ using HTML5, CSS3, and Vanilla JavaScript. &copy; 2026 Muhammad Atif. All rights reserved.</sub>
 </div>

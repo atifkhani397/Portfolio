@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const section = document.querySelector(target);
         if (section) section.scrollIntoView({ behavior: 'smooth' });
       } else if (action === 'copy-email') {
-        copyToClipboard('alex.dev@engineer.io', 'Email');
+        copyToClipboard('atifkhani397@gmail.com', 'Email');
       } else if (action === 'resume') {
         showToast('Downloading AI Agent Resume...', 'fa-solid fa-download');
       }
