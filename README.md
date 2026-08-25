@@ -1,9 +1,9 @@
 <div align="center">
 
-  # 🤖 Autonomous AI Agent Architect & Web Agent Portfolio
+  # 🤖 Senior Software Engineer & AI Agent Architect Portfolio
 
   <p align="center">
-    <b>A high-performance, dark glassmorphic personal portfolio built for Production AI Agent Architects & Autonomous Web Agent Engineers.</b>
+    <b>A dark glassmorphic personal portfolio showcasing research intelligence, financial AI, cloud operations, and full-stack engineering.</b>
   </p>
 
   <!-- Shields.io Badges -->
@@ -28,7 +28,7 @@
 
 ## 🌟 Overview & Strategic Positioning
 
-This portfolio is engineered specifically to showcase **code-first, production-grade autonomous AI agents** and **web-browsing agent systems**. Moving beyond simple wrappers or low-code platforms (such as n8n), it highlights deterministic agent execution loops, multi-agent orchestration (LangGraph / CrewAI), Model Context Protocols (MCP), Playwright DOM automation, and full-stack web integration.
+This portfolio presents **real software systems** built across autonomous research, financial analysis, cloud FinOps, and full-stack product engineering. It keeps the original dark glassmorphism UI while adding accurate project context, repository links, and case-study details for Orion, ARA-1, OptiCloud, and the portfolio itself.
 
 ---
 
@@ -72,10 +72,10 @@ This portfolio is engineered specifically to showcase **code-first, production-g
 
 | Feature | Description | Top Developer Standard |
 | :--- | :--- | :--- |
-| **⚡ Quick Command Palette (`Cmd + K`)** | Keyboard-driven modal for instant section navigation, email copy, and resume downloads. | Inspired by Vercel / Linear |
+| **⚡ Quick Command Palette (`Cmd + K`)** | Keyboard-driven modal for instant section navigation, email copy, and project discovery. | Inspired by Vercel / Linear |
 | **🧪 Interactive Dev Lab** | Live browser simulator executing autonomous web agent Playwright loops & real-time CSS glass sliders. | Inspired by Rauno Freiberg & Josh Comeau |
 | **📊 Case Study Modal Structure** | Detailed pop-up breakdown into **1. The Problem**, **2. Architecture**, and **3. Quantified Impact Metrics**. | Inspired by Brittany Chiang & Sara Soueidan |
-| **🟢 Live Availability Badge** | Dynamic indicator displaying real-time status (`🟢 Available for AI Agent Projects`). | Inspired by Lee Robinson |
+| **🟢 Availability Badge** | Clear availability indicator for AI agent projects without implying that a project is currently running. | Modern portfolio UX |
 | **📋 1-Click Copy & Toast System** | Contact cards copy information to clipboard with floating glass toast notifications. | Modern UX Standard |
 
 ---
@@ -84,10 +84,10 @@ This portfolio is engineered specifically to showcase **code-first, production-g
 
 | Project | Category | Tech Stack | Problem Solved & Impact |
 | :--- | :--- | :--- | :--- |
-| **AuraAgent Web Explorer** | Web AI Agent | Python, Playwright, LangGraph, Browser-Use, Gemini API | Automates complex multi-step browser workflows & dynamic DOM extraction with 99.2% accuracy. |
-| **OmniCommerce Agent Hub** | Full-Stack Web | Next.js, Node.js, MySQL, Stripe API, Tailwind | Multi-tenant SaaS platform processing $1.2M+ monthly transaction volume with sub-100ms API response times. |
-| **OmniAgent Swarm Engine** | Multi-Agent System | Python, CrewAI, FastAPI, MCP Protocol, Docker | Code-driven multi-agent framework reducing task execution errors by 65% using human-in-the-loop validation. |
-| **PulseTaskManager Pro** | Desktop Tool | Java, JavaFX, MySQL, Hibernate ORM | Cross-platform desktop resource scheduler reducing background job execution overhead by 30%. |
+| **Orion** | AI Research Intelligence | Python, React, FastAPI, Qdrant, Redis | Fetches live academic literature, detects research gaps, scores innovation potential, and drafts cited reports. |
+| **ARA-1 Financial Research Agent** | AI Research Intelligence | Python, LangChain, ChromaDB, FastAPI, WebSockets | Performs SEC filing analysis, valuation modeling, source resolution, and automated report synthesis. |
+| **OptiCloud / Cindr** | Full-Stack Web | Next.js, TypeScript, PostgreSQL, Redis, Slack | Finds cloud waste, routes approvals, executes bounded remediation, and preserves an audit trail. |
+| **Muhammad Atif Portfolio** | Full-Stack Web | HTML5, CSS3, JavaScript, Responsive UI | Presents real projects with original dark glass UI, filters, modals, and interactive developer tooling. |
 
 ---
 
@@ -100,10 +100,11 @@ My portfolio/
 ├── ⚡ script.js         # Vanilla JS logic (Cmd+K, Dev Lab, Modal, Filters)
 ├── 🖼️ assets/
 │   ├── avatar.png       # Autonomous AI Agent Architect profile headshot
-│   ├── project1.png     # AuraAgent Web Explorer preview
-│   ├── project2.png     # OmniCommerce Agent Hub preview
-│   ├── project3.png     # OmniAgent Swarm Engine preview
-│   └── project4.png     # PulseTaskManager Pro preview
+│   ├── project1.png       # Existing portfolio visual asset
+│   ├── project2.png       # Existing portfolio visual asset
+│   ├── project3.png       # Existing portfolio visual asset
+│   ├── project4.png       # Existing portfolio visual asset
+│   └── projects/          # Orion and OptiCloud product screenshots
 └── 📘 README.md         # Professional documentation & Shields.io badges
 ```
 
