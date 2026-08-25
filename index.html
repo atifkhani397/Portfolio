@@ -1,904 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muhammad Atif | Production AI Agent Architect & Web Agent Engineer</title>
-  <meta name="description"
-    content="Portfolio of Muhammad Atif, a Senior Software Engineer specializing in production-grade autonomous AI agents, web agent systems, and full-stack software architecture.">
-
-  <!-- Font Awesome Icons -->
+  <title>Muhammad Atif | AI Systems & Product Engineer</title>
+  <meta name="description" content="Muhammad Atif builds production AI agents, research intelligence systems, and cloud operations products.">
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
 
-  <!-- Toast Notification Container -->
-  <div class="toast-container" id="toast-container"></div>
-
-  <!-- Ambient Background Blobs -->
-  <div class="bg-blobs">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
-
-  <!-- Sticky Navigation Header -->
   <header class="navbar" id="navbar">
-    <div class="container">
-      <a href="#home" class="logo" id="nav-logo">
-        Muhammad <span>Atif</span>
-        <span class="logo-dot"></span>
+    <div class="container nav-inner">
+      <a href="#home" class="brand" aria-label="Muhammad Atif home">
+        <span class="brand-mark">MA</span>
+        <span class="brand-name">Muhammad Atif</span>
+        <span class="brand-dot"></span>
       </a>
 
-      <nav>
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#lab" class="nav-link">Dev Lab</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-          <li><a href="#contact" class="nav-cta">Hire Me</a></li>
-        </ul>
+      <nav class="nav-links" id="nav-menu" aria-label="Primary navigation">
+        <a href="#work" class="nav-link active">Work</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#toolkit" class="nav-link">Toolkit</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
-      <div style="display: flex; align-items: center; gap: 0.8rem;">
-        <button class="cmd-k-trigger" id="cmd-k-btn" title="Open Quick Command Palette (Cmd+K)">
-          <i class="fa-solid fa-terminal"></i>
-          <span>Cmd + K</span>
+      <div class="nav-actions">
+        <button class="cmd-k-trigger" id="cmd-k-btn" type="button" title="Open command menu">
+          <i class="fa-solid fa-terminal" aria-hidden="true"></i>
+          <span>⌘ K</span>
         </button>
-
-        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <a class="nav-cta" href="#contact">Let's talk <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        <button class="hamburger" id="hamburger-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="hero-status-row">
-            <div class="hero-badge">
-              <span class="hero-badge-dot"></span>
-              Welcome to my digital space
-            </div>
-            <div class="availability-badge">
-              <span class="pulse-green"></span>
-              <span>Available for AI Agent Projects</span>
-            </div>
-          </div>
-
-          <h1 class="hero-title">
-            Hi, I'm <span class="gradient-text">Muhammad Atif</span><br>
-            <span class="typing-container">
-              <span class="typing-text" id="typing-text"></span>
-            </span>
-          </h1>
-
-          <p class="hero-desc">
-            Architecting code-driven, production-grade autonomous AI agents and web agent systems. Moving beyond
-            low-code wrappers to engineer resilient multi-agent orchestration, web automation, and full-stack AI
-            infrastructure.
-          </p>
-
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="eyebrow-line"></span> AI systems · product engineering · open source</div>
+          <h1>I build the systems behind <span class="gradient-text">ambitious ideas.</span></h1>
+          <p class="hero-lead">I'm Muhammad Atif, a software engineer focused on production-grade autonomous agents, research intelligence, and dependable full-stack products.</p>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">
-              <i class="fa-solid fa-robot"></i> View Agent Case Studies
-            </a>
-            <a href="#lab" class="btn btn-glass">
-              <i class="fa-solid fa-flask"></i> Interactive Agent Lab
-            </a>
+            <a class="btn btn-primary" href="#work">Explore selected work <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+            <a class="btn btn-quiet" href="https://github.com/atifkhani397" target="_blank" rel="noopener">GitHub profile <i class="fa-brands fa-github" aria-hidden="true"></i></a>
           </div>
+          <div class="hero-footnote"><span class="pulse-dot"></span><span>Currently building reliable AI workflows and useful interfaces.</span></div>
         </div>
 
-        <div class="hero-avatar-wrapper">
-          <div class="avatar-blob-frame">
-            <div class="avatar-img-container">
-              <img src="assets/avatar.png" alt="Muhammad Atif - Autonomous AI Agent Engineer">
+        <div class="hero-stage reveal" aria-label="Product systems preview">
+          <div class="stage-ring ring-one"></div>
+          <div class="stage-ring ring-two"></div>
+          <div class="stage-card stage-main">
+            <div class="stage-topbar"><span class="window-dots"><i></i><i></i><i></i></span><span class="stage-label">systems / overview</span><span class="stage-live"><span></span> live</span></div>
+            <div class="stage-content">
+              <div class="stage-kicker">A small view of the stack</div>
+              <div class="stage-heading">From question<br>to <span>working system.</span></div>
+              <div class="stage-flow">
+                <div class="flow-node"><span class="flow-icon flow-blue"><i class="fa-solid fa-magnifying-glass-chart"></i></span><span>Research</span><small>retrieve + reason</small></div>
+                <div class="flow-connector"></div>
+                <div class="flow-node"><span class="flow-icon flow-purple"><i class="fa-solid fa-diagram-project"></i></span><span>Orchestrate</span><small>plan + execute</small></div>
+                <div class="flow-connector"></div>
+                <div class="flow-node"><span class="flow-icon flow-green"><i class="fa-solid fa-cubes-stacked"></i></span><span>Ship</span><small>observe + improve</small></div>
+              </div>
+              <div class="stage-terminal"><span class="terminal-prompt">$</span> agent.run(<span>"make it useful"</span>)<span class="terminal-cursor"></span></div>
             </div>
           </div>
-
-          <div class="floating-badge fb-1">
-            <i class="fa-solid fa-robot"></i>
-            <span>Production AI Agent Architect</span>
-          </div>
-
-          <div class="floating-badge fb-2">
-            <i class="fa-solid fa-globe"></i>
-            <span>Autonomous Web Agents</span>
-          </div>
+          <div class="orbit-chip chip-orion"><span class="chip-icon"><i class="fa-solid fa-satellite-dish"></i></span><span><strong>Orion</strong><small>research intelligence</small></span></div>
+          <div class="orbit-chip chip-cindr"><span class="chip-icon"><i class="fa-solid fa-cloud"></i></span><span><strong>OptiCloud</strong><small>FinOps control plane</small></span></div>
+          <div class="stage-caption">Four real builds. One consistent question: <strong>does this hold up in production?</strong></div>
         </div>
 
-        <!-- Quick Stats Grid -->
-        <div class="hero-stats">
-          <div class="glass-card stat-card">
-            <div class="stat-number">35+</div>
-            <div class="stat-label">Production Deployments</div>
-          </div>
-          <div class="glass-card stat-card">
-            <div class="stat-number">5+</div>
-            <div class="stat-label">Years Experience</div>
-          </div>
-          <div class="glass-card stat-card">
-            <div class="stat-number">20+</div>
-            <div class="stat-label">Agent & Tech Tools</div>
-          </div>
-          <div class="glass-card stat-card">
-            <div class="stat-number">99%</div>
-            <div class="stat-label">System Reliability</div>
-          </div>
+        <div class="metric-strip reveal">
+          <div class="metric"><strong>04</strong><span>featured builds</span></div>
+          <div class="metric"><strong>03</strong><span>AI layers in Orion</span></div>
+          <div class="metric"><strong>46</strong><span>ARA-1 tests passing</span></div>
+          <div class="metric"><strong>01</strong><span>FinOps control plane</span></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Section -->
-  <section class="section about" id="about">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">About Me</span>
-        <h2 class="section-title">Code-First Autonomous AI Agent Engineering</h2>
-        <p class="section-subtitle">Designing self-healing, multi-agent workflows and web-browsing agents for real-world
-          enterprise applications.</p>
-      </div>
-
-      <div class="about-grid">
-        <div class="glass-card about-image-card reveal">
-          <img src="assets/avatar.png" alt="Muhammad Atif Workspace">
+    <section class="section work" id="work">
+      <div class="container">
+        <div class="section-heading split-heading reveal">
+          <div><span class="section-index">01 / Selected work</span><h2>Projects with a point of view.</h2></div>
+          <p>These are the systems I keep coming back to: agentic workflows with guardrails, rich interfaces for complex data, and infrastructure that knows how to fail safely.</p>
         </div>
 
-        <div class="about-content-wrapper reveal">
-          <p class="about-bio">
-            I am a Senior Software Engineer & Autonomous AI Agent Architect specializing in code-first agentic
-            infrastructure. Rather than relying on low-code platforms (like n8n), I build custom, production-level AI
-            agents using LangGraph, Python, Playwright browser controllers, and Model Context Protocols (MCP) integrated
-            seamlessly into full-stack web applications.
-          </p>
+        <div class="filter-row reveal" role="group" aria-label="Filter projects">
+          <button class="filter-btn active" type="button" data-filter="all">All work <span>04</span></button>
+          <button class="filter-btn" type="button" data-filter="ai">AI systems <span>02</span></button>
+          <button class="filter-btn" type="button" data-filter="product">Product engineering <span>01</span></button>
+          <button class="filter-btn" type="button" data-filter="personal">Personal site <span>01</span></button>
+        </div>
 
-          <!-- Interactive Tabs -->
-          <div class="tabs-header">
-            <button class="tab-btn active" data-tab="experience">Experience</button>
-            <button class="tab-btn" data-tab="education">Education</button>
-            <button class="tab-btn" data-tab="philosophy">Agent Core</button>
-          </div>
+        <div class="projects-grid">
+          <article class="project-card project-card-featured reveal" data-category="ai" data-project-id="orion" tabindex="0" role="button" aria-label="Open Orion case study">
+            <div class="project-thumb project-thumb-image"><img src="assets/projects/orion.png" alt="Orion autonomous research intelligence dashboard"><span class="project-badge">01 · Research intelligence</span><span class="thumb-corner"><i class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
+            <div class="project-body"><div class="project-meta"><span>AI system</span><span>Python / React</span></div><h3>Orion</h3><p>Autonomous research intelligence that fetches live ArXiv literature, detects research gaps, scores novelty, and drafts cited reports.</p><div class="project-footer"><div class="project-tags"><span>FastAPI</span><span>Qdrant</span><span>Groq</span><span>Redis</span></div><span class="case-link">View case study <i class="fa-solid fa-arrow-right"></i></span></div></div>
+          </article>
 
-          <div class="tab-content active" id="tab-experience">
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2023 - PRESENT</div>
-                <h3 class="timeline-title">Lead Autonomous Agent Architect</h3>
-                <div class="timeline-subtitle">Nexus AI Systems • San Francisco, CA</div>
-                <p class="timeline-desc">Architecting production web-browsing agents and multi-agent orchestration
-                  engines executing 500k+ autonomous task steps daily with human-in-the-loop guardrails.</p>
-              </div>
+          <article class="project-card reveal" data-category="ai" data-project-id="ara" tabindex="0" role="button" aria-label="Open ARA-1 case study">
+            <div class="project-thumb project-visual project-visual-ara"><span class="project-badge">02 · Equity research agent</span><span class="thumb-corner"><i class="fa-solid fa-arrow-up-right-from-square"></i></span><div class="visual-window"><div class="visual-window-head"><span>ARA-1 / research session</span><span class="visual-live">● running</span></div><div class="visual-question">Analyze <strong>NVDA</strong> at a glance</div><div class="visual-progress"><span></span></div><div class="visual-grid"><div><small>Sources</small><strong>SEC EDGAR</strong></div><div><small>Model</small><strong>DCF + WACC</strong></div><div><small>Report</small><strong>PDF ready</strong></div></div></div></div>
+            <div class="project-body"><div class="project-meta"><span>AI system</span><span>Plan · ReAct · Revise</span></div><h3>ARA-1</h3><p>Institutional-grade financial research agent for SEC filings, valuation modeling, source conflict resolution, and live report synthesis.</p><div class="project-footer"><div class="project-tags"><span>LangChain</span><span>ChromaDB</span><span>WebSockets</span></div><span class="case-link">View case study <i class="fa-solid fa-arrow-right"></i></span></div></div>
+          </article>
 
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2021 - 2023</div>
-                <h3 class="timeline-title">Senior Full Stack & AI Engineer</h3>
-                <div class="timeline-subtitle">Vanguard Technologies</div>
-                <p class="timeline-desc">Built microservices, tool-calling LLM backends, and responsive Next.js frontend
-                  interfaces backed by vector databases.</p>
-              </div>
+          <article class="project-card reveal" data-category="product" data-project-id="opticloud" tabindex="0" role="button" aria-label="Open OptiCloud case study">
+            <div class="project-thumb project-thumb-image"><img src="assets/projects/opticloud.png" alt="OptiCloud FinOps operations dashboard"><span class="project-badge">03 · Cloud operations</span><span class="thumb-corner"><i class="fa-solid fa-arrow-up-right-from-square"></i></span></div>
+            <div class="project-body"><div class="project-meta"><span>Product engineering</span><span>Next.js / TypeScript</span></div><h3>OptiCloud <em>· Cindr</em></h3><p>FinOps control plane for finding cloud waste, reviewing safe actions, executing approved remediation, and preserving an audit trail.</p><div class="project-footer"><div class="project-tags"><span>PostgreSQL</span><span>Redis</span><span>Slack</span><span>AWS</span></div><span class="case-link">View case study <i class="fa-solid fa-arrow-right"></i></span></div></div>
+          </article>
 
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2019 - 2021</div>
-                <h3 class="timeline-title">Backend & Systems Engineer</h3>
-                <div class="timeline-subtitle">SysCore Solutions</div>
-                <p class="timeline-desc">Engineered Python and Java high-concurrency microservices, SQL databases, and
-                  automated system pipelines.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-content" id="tab-education">
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2015 - 2019</div>
-                <h3 class="timeline-title">B.S. in Computer Science</h3>
-                <div class="timeline-subtitle">University of California, Berkeley</div>
-                <p class="timeline-desc">Focused on Artificial Intelligence, Distributed Systems, and Autonomous Agents.
-                  Graduated with Honors.</p>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2022</div>
-                <h3 class="timeline-title">AWS Certified Solutions Architect</h3>
-                <div class="timeline-subtitle">Amazon Web Services</div>
-                <p class="timeline-desc">Certified in high-availability cloud architecture, serverless compute, and
-                  secure API gateways.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-content" id="tab-philosophy">
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <h3 class="timeline-title">Production Agent Determinism</h3>
-                <p class="timeline-desc">Enforcing structured output schema validation (Pydantic), error retries, and
-                  stateful graph rollbacks.</p>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <h3 class="timeline-title">Autonomous Web Execution</h3>
-                <p class="timeline-desc">Building web-browsing agents capable of navigating DOM trees, handling dynamic
-                  pages, and executing complex web workflows autonomously.</p>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top: 1.5rem;">
-            <a href="#contact" class="btn btn-primary">
-              <i class="fa-solid fa-download"></i> Download Agent Resume
-            </a>
-          </div>
+          <article class="project-card reveal" data-category="personal" data-project-id="portfolio" tabindex="0" role="button" aria-label="Open portfolio case study">
+            <div class="project-thumb project-visual project-visual-portfolio"><span class="project-badge">04 · Personal site</span><span class="thumb-corner"><i class="fa-solid fa-arrow-up-right-from-square"></i></span><div class="portfolio-mock"><div class="mock-nav"><span class="mock-logo">MA<span>.</span></span><span>Work&nbsp;&nbsp; About&nbsp;&nbsp; Contact</span></div><div class="mock-body"><small>BUILDING THE SYSTEMS BEHIND</small><strong>Ambitious<br><span>ideas.</span></strong><div class="mock-line"></div><div class="mock-cards"><i></i><i></i><i></i></div></div></div></div>
+            <div class="project-body"><div class="project-meta"><span>Personal site</span><span>HTML / CSS / JS</span></div><h3>This portfolio</h3><p>A deliberate home for the work: minimal surface area, strong project context, and just enough interaction to make the systems feel tangible.</p><div class="project-footer"><div class="project-tags"><span>Responsive</span><span>Accessible</span><span>Vanilla JS</span></div><span class="case-link">View case study <i class="fa-solid fa-arrow-right"></i></span></div></div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Skills Section -->
-  <section class="section skills" id="skills">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">My Expertise</span>
-        <h2 class="section-title">Autonomous AI & Full-Stack Mastery</h2>
-        <p class="section-subtitle">Code-driven tools, frameworks, and web architectures I leverage to build production
-          AI systems.</p>
-      </div>
-
-      <div class="skills-grid">
-        <!-- AI Agents & LLMs -->
-        <div class="glass-card skill-category-card reveal">
-          <div class="skill-category-title">
-            <i class="fa-solid fa-robot"></i> AI Agent Architectures
-          </div>
-          <div class="skill-items-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-solid fa-diagram-project"></i> LangGraph / CrewAI / AutoGen</span>
-                <span class="skill-percent">95%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="95%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-solid fa-globe"></i> Web Agents (Browser-Use / Playwright)</span>
-                <span class="skill-percent">92%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="92%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-solid fa-network-wired"></i> Model Context Protocol (MCP)</span>
-                <span class="skill-percent">90%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="90%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Backend & Python -->
-        <div class="glass-card skill-category-card reveal">
-          <div class="skill-category-title">
-            <i class="fa-solid fa-server"></i> Backend & Agent Infrastructure
-          </div>
-          <div class="skill-items-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-brands fa-python"></i> Python Async (FastAPI / Pydantic)</span>
-                <span class="skill-percent">96%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="96%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-solid fa-database"></i> Vector DBs (Chroma / Qdrant)</span>
-                <span class="skill-percent">88%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="88%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-brands fa-node-js"></i> Node.js / Express</span>
-                <span class="skill-percent">88%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="88%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Web Frontends -->
-        <div class="glass-card skill-category-card reveal">
-          <div class="skill-category-title">
-            <i class="fa-solid fa-layer-group"></i> Full-Stack Web Interfaces
-          </div>
-          <div class="skill-items-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-brands fa-react"></i> Next.js / React / TypeScript</span>
-                <span class="skill-percent">90%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="90%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-brands fa-html5"></i> HTML5 / CSS3 / Glassmorphism</span>
-                <span class="skill-percent">95%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="95%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-solid fa-chart-line"></i> Agent Tracing (LangSmith /
-                  Traces)</span>
-                <span class="skill-percent">86%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="86%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- DevOps & Containers -->
-        <div class="glass-card skill-category-card reveal">
-          <div class="skill-category-title">
-            <i class="fa-solid fa-screwdriver-wrench"></i> Cloud & Containerization
-          </div>
-          <div class="skill-items-list">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-brands fa-docker"></i> Docker / Microservices</span>
-                <span class="skill-percent">90%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="90%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-brands fa-aws"></i> AWS Cloud & CI/CD</span>
-                <span class="skill-percent">85%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="85%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name"><i class="fa-brands fa-git-alt"></i> Git Architecture</span>
-                <span class="skill-percent">95%</span>
-              </div>
-              <div class="skill-bar-container">
-                <div class="skill-progress-bar" data-progress="95%"></div>
-              </div>
-            </div>
-          </div>
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <div class="section-heading reveal"><span class="section-index">02 / About</span><h2>Useful beats impressive.</h2><p>My work sits at the intersection of AI reasoning, product interfaces, and the engineering details that make systems trustworthy.</p><a class="text-link" href="https://github.com/atifkhani397" target="_blank" rel="noopener">See the source <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        <div class="about-panels reveal">
+          <div class="about-panel panel-highlight"><span class="panel-number">01</span><div><h3>Build from the failure mode.</h3><p>Retries, fallback routing, citation verification, approvals, and audit trails are not afterthoughts. They are part of the product.</p></div></div>
+          <div class="about-panel"><span class="panel-number">02</span><div><h3>Make complexity legible.</h3><p>Clear states, readable traces, and interfaces that explain what the system is doing help people stay in control.</p></div></div>
+          <div class="about-panel"><span class="panel-number">03</span><div><h3>Ship the whole loop.</h3><p>From data ingestion and orchestration to the dashboard and deployment docs, I like owning the path from idea to usable system.</p></div></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Section -->
-  <section class="section projects" id="projects">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Case Studies</span>
-        <h2 class="section-title">Production AI Agent Systems</h2>
-        <p class="section-subtitle">Deep dive into real-world autonomous web agents, multi-agent frameworks, and SaaS
-          architectures.</p>
-      </div>
-
-      <!-- Filter Controls -->
-      <div class="filter-controls reveal">
-        <button class="filter-btn active" data-filter="all">All Systems</button>
-        <button class="filter-btn" data-filter="ai">AI Agents & Web Agents</button>
-        <button class="filter-btn" data-filter="web">Full-Stack Web</button>
-        <button class="filter-btn" data-filter="desktop">Desktop & Tools</button>
-      </div>
-
-      <!-- Projects Grid -->
-      <div class="projects-grid" id="projects-grid">
-        <!-- Project 1: Autonomous Web Agent -->
-        <div class="glass-card project-card reveal" data-category="ai" data-project-id="1">
-          <div class="project-thumb">
-            <span class="project-badge">Web AI Agent</span>
-            <img src="assets/project1.png" alt="AuraAgent Web Explorer Preview">
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">AuraAgent Web Explorer</h3>
-            <p class="project-desc">Autonomous web-browsing agent using Playwright, LangGraph, and Gemini API to execute
-              multi-step browser workflows & data extraction.</p>
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">LangGraph</span>
-              <span class="tag">Playwright</span>
-              <span class="tag">Browser-Use</span>
-              <span class="tag">Gemini API</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2: Multi-Tenant SaaS -->
-        <div class="glass-card project-card reveal" data-category="web" data-project-id="2">
-          <div class="project-thumb">
-            <span class="project-badge">Full-Stack Web</span>
-            <img src="assets/project2.png" alt="OmniCommerce SaaS Preview">
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">OmniCommerce Agent Hub</h3>
-            <p class="project-desc">Modern multi-tenant web platform featuring real-time revenue telemetry and agentic
-              automated customer workflows.</p>
-            <div class="project-tags">
-              <span class="tag">Next.js</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">Tailwind</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3: Production Multi-Agent Engine -->
-        <div class="glass-card project-card reveal" data-category="ai" data-project-id="3">
-          <div class="project-thumb">
-            <span class="project-badge">Multi-Agent System</span>
-            <img src="assets/project3.png" alt="OmniAgent Swarm Preview">
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">OmniAgent Swarm Engine</h3>
-            <p class="project-desc">Production multi-agent orchestrator implementing MCP tool connections,
-              human-in-the-loop approvals, and real-time execution graphs.</p>
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">CrewAI</span>
-              <span class="tag">FastAPI</span>
-              <span class="tag">MCP Protocol</span>
-              <span class="tag">Docker</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: Desktop Utility -->
-        <div class="glass-card project-card reveal" data-category="desktop" data-project-id="4">
-          <div class="project-thumb">
-            <span class="project-badge">Desktop Tool</span>
-            <img src="assets/project4.png" alt="PulseTaskManager Pro Preview">
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">PulseTaskManager Pro</h3>
-            <p class="project-desc">Cross-platform desktop system utility built with JavaFX and MySQL for background
-              resource scheduling & telemetry logging.</p>
-            <div class="project-tags">
-              <span class="tag">Java</span>
-              <span class="tag">JavaFX</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">Hibernate</span>
-            </div>
-          </div>
+    <section class="section toolkit" id="toolkit">
+      <div class="container">
+        <div class="section-heading centered reveal"><span class="section-index">03 / Toolkit</span><h2>The tools behind the builds.</h2><p>A practical stack for taking an agent from a clever demo to a dependable product.</p></div>
+        <div class="toolkit-grid reveal">
+          <div class="toolkit-card"><span class="toolkit-icon icon-blue"><i class="fa-solid fa-brain"></i></span><h3>Agent architecture</h3><p>Plan-and-execute, ReAct loops, multi-model routing, tool schemas, guardrails, and evaluation.</p><div class="toolkit-tags"><span>Python</span><span>LangChain</span><span>LangGraph</span><span>Groq</span></div></div>
+          <div class="toolkit-card"><span class="toolkit-icon icon-purple"><i class="fa-solid fa-database"></i></span><h3>Retrieval & memory</h3><p>Hybrid search, embeddings, vector stores, context compaction, caching, and source-grounded outputs.</p><div class="toolkit-tags"><span>Qdrant</span><span>ChromaDB</span><span>Redis</span><span>BM25</span></div></div>
+          <div class="toolkit-card"><span class="toolkit-icon icon-green"><i class="fa-solid fa-layer-group"></i></span><h3>Product interfaces</h3><p>Responsive dashboards and focused workflows that turn complex system state into clear next actions.</p><div class="toolkit-tags"><span>React</span><span>TypeScript</span><span>Next.js</span><span>Tailwind</span></div></div>
+          <div class="toolkit-card"><span class="toolkit-icon icon-amber"><i class="fa-solid fa-shield-halved"></i></span><h3>Production discipline</h3><p>API boundaries, background jobs, WebSockets, Docker, testing, observability, and safe remediation.</p><div class="toolkit-tags"><span>FastAPI</span><span>PostgreSQL</span><span>Docker</span><span>Pytest</span></div></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Interactive Dev Lab Section -->
-  <section class="section lab" id="lab">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Interactive Playground</span>
-        <h2 class="section-title">Interactive Agent Lab</h2>
-        <p class="section-subtitle">Test live AI agent decision outputs, browser automation state trees, and UI theme
-          parameters in real-time.</p>
+    <section class="section lab" id="lab">
+      <div class="container lab-shell reveal">
+        <div class="lab-copy"><span class="section-index">04 / Build notes</span><h2>Pull up a trace.</h2><p>A tiny interactive trace from the same principles behind the projects above: explicit steps, visible state, useful output.</p><button class="btn btn-primary" id="lab-run-btn" type="button"><i class="fa-solid fa-play"></i> Run sample trace</button></div>
+        <div class="trace-console"><div class="trace-head"><span><i class="fa-solid fa-circle"></i><i class="fa-solid fa-circle"></i><i class="fa-solid fa-circle"></i></span><span>agent_trace.log</span><span class="trace-status">ready</span></div><div class="trace-body" id="lab-code-output"><span class="trace-muted">// press run to inspect a sample execution path</span><br><span class="trace-prompt">$</span> system.await_input()</div><div class="trace-footer"><span><i class="fa-solid fa-wand-magic-sparkles"></i> deterministic by design</span><span>01 / 04</span></div></div>
       </div>
+    </section>
 
-      <div class="lab-grid reveal">
-        <!-- Widget 1: Autonomous Web Agent Simulator -->
-        <div class="glass-card lab-card">
-          <div class="lab-card-header">
-            <div class="lab-card-title">
-              <i class="fa-solid fa-robot"></i> Web Agent Workflow Simulator
-            </div>
-            <span class="lab-status-badge">Live Agent Loop</span>
-          </div>
+    <section class="section contact" id="contact">
+      <div class="container contact-shell reveal"><div><span class="section-index">05 / Contact</span><h2>Have a hard problem?<br><span>Let's make it legible.</span></h2></div><div class="contact-copy"><p>If you're building an AI product, an internal research workflow, or an interface for complex operations, I'd love to hear what you're working on.</p><div class="contact-actions"><a class="btn btn-primary" href="mailto:atifkhani397@gmail.com">Start a conversation <i class="fa-solid fa-arrow-up-right-from-square"></i></a><button class="btn btn-quiet copy-trigger" type="button" data-copy="atifkhani397@gmail.com">Copy email <i class="fa-solid fa-copy"></i></button></div><div class="contact-meta"><span><i class="fa-solid fa-location-dot"></i> Remote-friendly</span><span><i class="fa-solid fa-code-branch"></i> Open to thoughtful collaborations</span></div></div></div>
+    </section>
+  </main>
 
-          <div class="lab-card-body">
-            <p class="lab-card-desc">Simulate a code-first web browsing agent executing multi-step DOM tasks:</p>
+  <footer class="footer"><div class="container footer-content"><span>© 2026 Muhammad Atif</span><span>Designed around the work, not around the noise.</span><a href="#home" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a></div></footer>
 
-            <div class="lab-control-group">
-              <label for="lab-language" class="form-label">Agent Action Target:</label>
-              <select id="lab-language" class="form-input">
-                <option value="webagent">Autonomous Web Scraping & Form Fill (Playwright)</option>
-                <option value="python">Multi-Agent Consensus Graph (LangGraph)</option>
-                <option value="sql">MCP Tool Context Query (FastAPI)</option>
-              </select>
-            </div>
-
-            <button class="btn btn-primary" id="lab-run-btn" style="width: 100%; margin-top: 1rem;">
-              <i class="fa-solid fa-play"></i> Execute Agent Loop
-            </button>
-
-            <div class="code-terminal" id="lab-code-output">
-              <span class="terminal-prompt">$ aura-agent --task="Extract product metrics from web"</span><br>
-              <span class="terminal-comment"># Press "Execute Agent Loop" to trace agent execution...</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Widget 2: Live Glassmorphism Controller -->
-        <div class="glass-card lab-card">
-          <div class="lab-card-header">
-            <div class="lab-card-title">
-              <i class="fa-solid fa-sliders"></i> Glassmorphism Design Controller
-            </div>
-            <span class="lab-status-badge">Theme Engine</span>
-          </div>
-
-          <div class="lab-card-body">
-            <p class="lab-card-desc">Adjust theme variables dynamically across the portfolio UI:</p>
-
-            <div class="lab-slider-group">
-              <div class="slider-label-row">
-                <span>Blur Intensity (<span id="val-blur">16</span>px)</span>
-              </div>
-              <input type="range" id="slider-blur" min="4" max="32" value="16" class="lab-slider">
-            </div>
-
-            <div class="lab-slider-group">
-              <div class="slider-label-row">
-                <span>Card Opacity (<span id="val-opacity">65</span>%)</span>
-              </div>
-              <input type="range" id="slider-opacity" min="20" max="95" value="65" class="lab-slider">
-            </div>
-
-            <div class="preview-box" id="lab-glass-preview">
-              <span>Interactive Glass Token Preview</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Project Details Popup Modal -->
-  <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog">
-    <div class="glass-card modal-container">
-      <button class="modal-close-btn" id="modal-close" aria-label="Close modal">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <div class="modal-content">
-        <div class="modal-img-wrapper">
-          <img id="modal-img" src="" alt="Project Image">
-        </div>
-        <div class="project-badge" id="modal-category">Category</div>
-        <h2 class="modal-title" id="modal-title">Project Title</h2>
-
-        <p class="modal-desc-full" id="modal-desc">
-          Full description goes here...
-        </p>
-
-        <!-- Case Study Pillars -->
-        <div class="case-study-pillars">
-          <div class="pillar-box">
-            <div class="pillar-title"><i class="fa-solid fa-circle-exclamation"></i> The Problem</div>
-            <div class="pillar-text" id="modal-problem">Description of the bottleneck solved.</div>
-          </div>
-
-          <div class="pillar-box">
-            <div class="pillar-title"><i class="fa-solid fa-diagram-project"></i> Architecture</div>
-            <div class="pillar-text" id="modal-architecture">Technical breakdown & trade-offs.</div>
-          </div>
-
-          <div class="pillar-box">
-            <div class="pillar-title"><i class="fa-solid fa-chart-line"></i> Impact & Metrics</div>
-            <div class="pillar-text" id="modal-impact">Quantifiable results achieved.</div>
-          </div>
-        </div>
-
-        <h4 class="modal-section-heading" style="margin-top: 1.5rem;">Technologies Used</h4>
-        <div class="project-tags" id="modal-tags" style="margin-bottom: 1.5rem;"></div>
-
-        <div class="modal-actions">
-          <a href="#" target="_blank" rel="noopener" class="btn btn-primary" id="modal-demo-link">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-          </a>
-          <a href="#" target="_blank" rel="noopener" class="btn btn-glass" id="modal-github-link">
-            <i class="fa-brands fa-github"></i> GitHub Repo
-          </a>
-        </div>
-      </div>
-    </div>
+  <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-container"><button class="modal-close-btn" id="modal-close" type="button" aria-label="Close case study"><i class="fa-solid fa-xmark"></i></button><div id="modal-visual" class="modal-visual"></div><div class="modal-content"><span class="modal-category" id="modal-category">Project</span><h2 id="modal-title">Project title</h2><p class="modal-desc-full" id="modal-desc"></p><div class="case-study-pillars"><div><span><i class="fa-solid fa-circle-exclamation"></i> Challenge</span><p id="modal-problem"></p></div><div><span><i class="fa-solid fa-diagram-project"></i> Approach</span><p id="modal-architecture"></p></div><div><span><i class="fa-solid fa-chart-line"></i> Signal</span><p id="modal-impact"></p></div></div><div class="modal-tags" id="modal-tags"></div><div class="modal-actions"><a class="btn btn-primary" id="modal-github-link" href="#" target="_blank" rel="noopener">Open repository <i class="fa-brands fa-github"></i></a></div></div></div>
   </div>
 
-  <!-- Command Palette Modal (Cmd + K) -->
-  <div class="cmd-k-overlay" id="cmd-k-overlay" aria-hidden="true" role="dialog">
-    <div class="glass-card cmd-k-dialog">
-      <div class="cmd-k-header">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="cmd-k-input"
-          placeholder="Type a section or command (e.g. Agents, Contact, Copy Email)..." autofocus>
-        <span class="cmd-k-esc">ESC</span>
-      </div>
+  <div class="cmd-k-overlay" id="cmd-k-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Quick navigation"><div class="cmd-k-dialog"><div class="cmd-k-header"><i class="fa-solid fa-magnifying-glass"></i><input id="cmd-k-input" type="text" placeholder="Jump to a section or action…" autocomplete="off"><span>ESC</span></div><div class="cmd-k-results" id="cmd-k-results"><p class="cmd-k-group-label">Navigate</p><button class="cmd-k-item" type="button" data-action="nav" data-target="#home"><i class="fa-solid fa-house"></i><span>Home</span><kbd>H</kbd></button><button class="cmd-k-item" type="button" data-action="nav" data-target="#work"><i class="fa-solid fa-grid-2"></i><span>Selected work</span><kbd>W</kbd></button><button class="cmd-k-item" type="button" data-action="nav" data-target="#about"><i class="fa-solid fa-user"></i><span>About</span><kbd>A</kbd></button><button class="cmd-k-item" type="button" data-action="nav" data-target="#toolkit"><i class="fa-solid fa-layer-group"></i><span>Toolkit</span><kbd>T</kbd></button><button class="cmd-k-item" type="button" data-action="nav" data-target="#contact"><i class="fa-solid fa-envelope"></i><span>Contact</span><kbd>C</kbd></button><p class="cmd-k-group-label">Actions</p><button class="cmd-k-item" type="button" data-action="copy-email"><i class="fa-solid fa-copy"></i><span>Copy email address</span></button><a class="cmd-k-item" href="https://github.com/atifkhani397" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i><span>Open GitHub profile</span></a></div></div></div>
 
-      <div class="cmd-k-results" id="cmd-k-results">
-        <div class="cmd-k-group-label">Navigation</div>
-        <div class="cmd-k-item" data-action="nav" data-target="#home">
-          <i class="fa-solid fa-house"></i>
-          <span>Go to Home</span>
-          <span class="cmd-k-shortcut">H</span>
-        </div>
-        <div class="cmd-k-item" data-action="nav" data-target="#about">
-          <i class="fa-solid fa-user"></i>
-          <span>Go to About</span>
-          <span class="cmd-k-shortcut">A</span>
-        </div>
-        <div class="cmd-k-item" data-action="nav" data-target="#projects">
-          <i class="fa-solid fa-robot"></i>
-          <span>Go to Agent Projects</span>
-          <span class="cmd-k-shortcut">P</span>
-        </div>
-        <div class="cmd-k-item" data-action="nav" data-target="#lab">
-          <i class="fa-solid fa-flask"></i>
-          <span>Go to Interactive Agent Lab</span>
-          <span class="cmd-k-shortcut">L</span>
-        </div>
-        <div class="cmd-k-item" data-action="nav" data-target="#contact">
-          <i class="fa-solid fa-envelope"></i>
-          <span>Go to Contact</span>
-          <span class="cmd-k-shortcut">C</span>
-        </div>
-
-        <div class="cmd-k-group-label">Quick Actions</div>
-        <div class="cmd-k-item" data-action="copy-email">
-          <i class="fa-solid fa-copy"></i>
-          <span>Copy Email Address (atifkhani397@gmail.com)</span>
-        </div>
-        <div class="cmd-k-item" data-action="resume">
-          <i class="fa-solid fa-file-arrow-down"></i>
-          <span>Download AI Agent Resume</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Services Section -->
-  <section class="section services" id="services">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Services</span>
-        <h2 class="section-title">Autonomous AI & Web Engineering</h2>
-        <p class="section-subtitle">End-to-end production AI agents, multi-agent frameworks, and full-stack web
-          platforms.</p>
-      </div>
-
-      <div class="services-grid">
-        <div class="glass-card service-card reveal">
-          <div class="service-icon">
-            <i class="fa-solid fa-robot"></i>
-          </div>
-          <h3 class="service-title">Autonomous AI Agent Dev</h3>
-          <p class="service-desc">Custom code-first multi-agent systems (LangGraph, CrewAI), state management, Pydantic
-            validation, and MCP protocol integration for production reliability.</p>
-        </div>
-
-        <div class="glass-card service-card reveal">
-          <div class="service-icon">
-            <i class="fa-solid fa-globe"></i>
-          </div>
-          <h3 class="service-title">Web-Browsing AI Agents</h3>
-          <p class="service-desc">Building autonomous browser agents using Playwright & Browser-Use capable of
-            navigating complex DOM trees, executing forms, and automating web tasks.</p>
-        </div>
-
-        <div class="glass-card service-card reveal">
-          <div class="service-icon">
-            <i class="fa-solid fa-laptop-code"></i>
-          </div>
-          <h3 class="service-title">Full-Stack Web Architecture</h3>
-          <p class="service-desc">Connecting agent backends to sleek Next.js / React interfaces, real-time WebSockets,
-            microservices, and cloud-native databases.</p>
-        </div>
-
-        <div class="glass-card service-card reveal">
-          <div class="service-icon">
-            <i class="fa-solid fa-network-wired"></i>
-          </div>
-          <h3 class="service-title">Enterprise API & Tool Systems</h3>
-          <p class="service-desc">Exposing high-throughput Python FastAPI endpoints, vector database integrations
-            (Chroma/Qdrant), and LLM observability tracing.</p>
-        </div>
-      </div>
-
-      <!-- 4-Step Development Lifecycle -->
-      <div class="lifecycle-wrapper reveal">
-        <h3 class="section-title" style="font-size: 1.8rem;">Agent Development Lifecycle</h3>
-        <div class="lifecycle-grid">
-          <div class="glass-card lifecycle-step">
-            <div class="step-num">01</div>
-            <h4 class="step-title">Agent Design</h4>
-            <p class="step-desc">Defining tool schemas, state graphs, and deterministic Pydantic output guardrails.</p>
-          </div>
-
-          <div class="glass-card lifecycle-step">
-            <div class="step-num">02</div>
-            <h4 class="step-title">Web Integration</h4>
-            <p class="step-desc">Connecting Playwright browser engines, REST/WebSocket APIs, and Next.js interfaces.</p>
-          </div>
-
-          <div class="glass-card lifecycle-step">
-            <div class="step-num">03</div>
-            <h4 class="step-title">Execution Testing</h4>
-            <p class="step-desc">Running evaluation suites, fallback error handling, and latency optimization.</p>
-          </div>
-
-          <div class="glass-card lifecycle-step">
-            <div class="step-num">04</div>
-            <h4 class="step-title">Production Deployment</h4>
-            <p class="step-desc">Containerized Docker deployment with LangSmith tracing & cloud scaling.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Get In Touch</span>
-        <h2 class="section-title">Let's Build Production AI Agents</h2>
-        <p class="section-subtitle">Looking for an Autonomous AI Agent Architect or Web Agent Specialist for your team?
-          Reach out anytime!</p>
-      </div>
-
-      <div class="contact-grid">
-        <!-- Contact Info Cards -->
-        <div class="reveal">
-          <div class="contact-info-cards">
-            <div class="glass-card contact-card copy-trigger" data-copy="atifkhani397@gmail.com" style="cursor: pointer;"
-              title="Click to copy email">
-              <div class="contact-card-icon">
-                <i class="fa-solid fa-envelope"></i>
-              </div>
-              <div>
-                <div class="contact-card-label">Email Me (Click to Copy)</div>
-                <div class="contact-card-value">atifkhani397@gmail.com</div>
-              </div>
-            </div>
-
-            <div class="glass-card contact-card copy-trigger" data-copy="+1 (555) 234-5678" style="cursor: pointer;"
-              title="Click to copy phone number">
-              <div class="contact-card-icon">
-                <i class="fa-solid fa-phone"></i>
-              </div>
-              <div>
-                <div class="contact-card-label">Call / Message (Click to Copy)</div>
-                <div class="contact-card-value">+1 (555) 234-5678</div>
-              </div>
-            </div>
-
-            <div class="glass-card contact-card">
-              <div class="contact-card-icon">
-                <i class="fa-solid fa-location-dot"></i>
-              </div>
-              <div>
-                <div class="contact-card-label">Location</div>
-                <div class="contact-card-value">San Francisco, CA (Open to Remote)</div>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top: 2rem;">
-            <h4 style="margin-bottom: 1rem; color: var(--text-muted);">Connect with me</h4>
-            <div class="social-links">
-              <a href="https://github.com/atifkhani397" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i>
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
-                <i class="fa-brands fa-linkedin-in"></i>
-              </a>
-              <a href="https://x.com" target="_blank" rel="noopener" class="social-icon" aria-label="X Twitter">
-                <i class="fa-brands fa-x-twitter"></i>
-              </a>
-              <a href="https://leetcode.com" target="_blank" rel="noopener" class="social-icon" aria-label="LeetCode">
-                <i class="fa-solid fa-code"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact Form Card -->
-        <div class="glass-card contact-form-card reveal">
-          <form id="contact-form">
-            <div class="form-group">
-              <label for="name" class="form-label">Your Name</label>
-              <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
-            </div>
-
-            <div class="form-group">
-              <label for="email" class="form-label">Your Email</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="e.g. sarah@example.com"
-                required>
-            </div>
-
-            <div class="form-group">
-              <label for="subject" class="form-label">Subject</label>
-              <input type="text" id="subject" name="subject" class="form-input"
-                placeholder="AI Agent Inquiry / Role Opportunity" required>
-            </div>
-
-            <div class="form-group">
-              <label for="message" class="form-label">Message</label>
-              <textarea id="message" name="message" class="form-input"
-                placeholder="Tell me about your agent requirements or project vision..." required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
-              <i class="fa-solid fa-paper-plane"></i> Send Message
-            </button>
-
-            <div class="form-feedback" id="form-feedback"></div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-text">
-          &copy; 2026 Muhammad Atif. Production AI Agent Architect & Web Systems Engineer.
-        </div>
-        <button class="back-to-top" id="back-to-top" aria-label="Scroll back to top">
-          <i class="fa-solid fa-arrow-up"></i>
-        </button>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Vanilla JavaScript File -->
   <script src="script.js"></script>
 </body>
 

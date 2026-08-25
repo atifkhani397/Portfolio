@@ -1,520 +1,264 @@
-/**
- * Software Engineer Portfolio - Script Logic (2026 Upgraded AI Agent Edition)
- * Positioning: Production AI Agent Architect & Autonomous Web Agent Engineer.
- */
-
-// --------------------------------------------------------------------------
-// 1. Projects Case Studies Data Configuration
-// --------------------------------------------------------------------------
 const PROJECTS_DATA = {
-  1: {
-    id: 1,
-    title: "AuraAgent Web Explorer",
-    category: "AI Agents & Web Agents",
-    image: "assets/project1.png",
-    description: "AuraAgent is a production-grade autonomous web-browsing agent powered by Python, Playwright, Browser-Use, and Google Gemini API.",
-    problem: "Enterprise teams waste hundreds of hours manually executing multi-step browser workflows, form inputs, and dynamic DOM data extraction.",
-    architecture: "Python async event loop managing Playwright headless Chromium controllers, governed by a LangGraph state machine with automatic DOM retries.",
-    impact: "Automated 120+ web workflows autonomously with 99.2% extraction accuracy and zero human intervention.",
-    tags: ["Python", "Playwright", "LangGraph", "Browser-Use", "Gemini API"],
-    demoUrl: "https://example.com/aura-agent-demo",
-    githubUrl: "https://github.com/example/aura-agent-web"
+  orion: {
+    category: 'Research intelligence · AI system',
+    title: 'Orion',
+    description: 'An end-to-end autonomous research intelligence system that fetches live academic literature, detects research gaps, scores innovation potential, and drafts publication-ready reports with verified references.',
+    problem: 'Long-form research workflows are slow to coordinate and vulnerable to weak retrieval, citation drift, and model bottlenecks.',
+    architecture: 'A 3-layer multi-model pipeline combines FastAPI, Qdrant, DuckDB, Redis, hybrid BM25/vector retrieval, ArXiv ingestion, and a React dashboard.',
+    impact: 'Designed around grounded output: live source ingestion, citation verification, faithfulness checks, resumable batch processing, and 19-section report generation.',
+    github: 'https://github.com/atifkhani397/Orion'
   },
-  2: {
-    id: 2,
-    title: "OmniCommerce Agent Hub",
-    category: "Full-Stack Web",
-    image: "assets/project2.png",
-    description: "OmniCommerce is a scalable multi-tenant e-commerce web platform featuring real-time revenue telemetry and agentic automated customer workflows.",
-    problem: "E-commerce merchants required automated background processing for customer support triage and refund approvals.",
-    architecture: "Next.js App Router frontend paired with Node.js microservices, Stripe Webhooks, and MySQL read-replicas on AWS.",
-    impact: "Maintained sub-100ms API response times while processing over $1.2M in monthly merchant transaction volume.",
-    tags: ["Next.js", "Node.js", "MySQL", "Tailwind", "Stripe API"],
-    demoUrl: "https://example.com/omnicommerce-demo",
-    githubUrl: "https://github.com/example/omnicommerce-saas"
+  ara: {
+    category: 'Equity research agent · AI system',
+    title: 'ARA-1 / Financial Research Agent',
+    description: 'An autonomous financial research engine for multi-source equity analysis, SEC EDGAR filing parsing, valuation modeling, memory compaction, and automated report synthesis.',
+    problem: 'Analysts spend hours gathering filings, reconciling sources, building valuation models, and turning fragmented evidence into a structured research note.',
+    architecture: 'A custom Plan-and-Execute + ReAct engine selects from 12 financial tools, uses ChromaDB memory, applies a source reliability hierarchy, and streams events over WebSockets.',
+    impact: 'The repository reports 46 passing tests, 32% prompt-token reduction, 21.4s average single-step latency, and 2.5–6 minute end-to-end research sessions.',
+    github: 'https://github.com/ZethetaIntern/Financial-Research-agent-'
   },
-  3: {
-    id: 3,
-    title: "OmniAgent Swarm Engine",
-    category: "AI Agents & Web Agents",
-    image: "assets/project3.png",
-    description: "OmniAgent Swarm is a multi-agent orchestration framework built with CrewAI, FastAPI, and Model Context Protocols (MCP) for enterprise tool execution.",
-    problem: "Single-prompt LLMs failed on complex multi-stage tasks requiring specialist consensus and external tool authorization.",
-    architecture: "Code-driven Python multi-agent pipeline with deterministic Pydantic schema validation and human-in-the-loop approval gates.",
-    impact: "Reduced multi-step task execution errors by 65% compared to monolithic LLM calls.",
-    tags: ["Python", "CrewAI", "FastAPI", "MCP Protocol", "Docker"],
-    demoUrl: "https://example.com/omniagent-demo",
-    githubUrl: "https://github.com/example/omniagent-swarm"
+  opticloud: {
+    category: 'Cloud operations · Product engineering',
+    title: 'OptiCloud / Cindr',
+    description: 'A FinOps control plane for finding cloud waste, reviewing safe actions, executing approved remediation, and keeping an organization-scoped audit trail.',
+    problem: 'Cloud savings require more than detection: teams need policy-aware review, approval workflows, bounded actions, rollback paths, and a trustworthy record of every decision.',
+    architecture: 'A Next.js dashboard connects to a Fastify API, PostgreSQL/TimescaleDB, Redis/BullMQ workers, Slack approvals, and provider adapters with security hardening.',
+    impact: 'The product includes waste detectors, policy governance, approval routing, snapshot-first remediation, rollback workflows, migrations, and a local Docker Compose stack.',
+    github: 'https://github.com/atifkhani397/OptiCloud'
   },
-  4: {
-    id: 4,
-    title: "PulseTaskManager Pro",
-    category: "Desktop & Tools",
-    image: "assets/project4.png",
-    description: "PulseTaskManager is a high-performance cross-platform desktop application designed for engineering teams to monitor system CPU metrics and background agents.",
-    problem: "Engineering teams lacked a lightweight desktop resource scheduler with offline SQL audit capabilities.",
-    architecture: "JavaFX desktop application leveraging Hibernate ORM, MySQL local synchronization, and custom CSS glassmorphism UI.",
-    impact: "Cut background job scheduling overhead by 30% for desktop development environments.",
-    tags: ["Java", "JavaFX", "MySQL", "Hibernate", "CSS3"],
-    demoUrl: "",
-    githubUrl: "https://github.com/example/pulsetask-manager"
+  portfolio: {
+    category: 'Personal site · Product engineering',
+    title: 'This portfolio',
+    description: 'A deliberately lightweight portfolio that gives the work room to breathe: direct project context, restrained motion, accessible interactions, and a UI that reflects the systems it represents.',
+    problem: 'A collection of repositories needs a clear narrative, not just a grid of links. Visitors should understand what was built and why it matters before opening the source.',
+    architecture: 'A dependency-free HTML, CSS, and JavaScript site uses progressive enhancement for filtering, case-study modals, command navigation, and the interactive trace.',
+    impact: 'The portfolio now presents four real builds with accurate source links, product visuals, responsive behavior, keyboard-friendly interactions, and a consistent editorial system.',
+    github: 'https://github.com/atifkhani397/Portfolio'
   }
 };
 
-// --------------------------------------------------------------------------
-// 2. Helper Utilities & Toast Notifications
-// --------------------------------------------------------------------------
-function showToast(message, icon = 'fa-solid fa-check-circle') {
-  const container = document.getElementById('toast-container');
-  if (!container) return;
+const qs = (selector, parent = document) => parent.querySelector(selector);
+const qsa = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 
+function showToast(message, icon = 'fa-solid fa-circle-check') {
+  const container = qs('#toast-container');
+  if (!container) return;
   const toast = document.createElement('div');
   toast.className = 'toast';
-  toast.innerHTML = `<i class="${icon}"></i> <span>${message}</span>`;
-  
+  toast.innerHTML = `<i class="${icon}" aria-hidden="true"></i><span>${message}</span>`;
   container.appendChild(toast);
-
-  setTimeout(() => {
+  window.setTimeout(() => {
     toast.style.opacity = '0';
-    toast.style.transform = 'translateY(10px)';
-    setTimeout(() => toast.remove(), 300);
-  }, 3000);
+    toast.style.transform = 'translateY(8px)';
+    window.setTimeout(() => toast.remove(), 240);
+  }, 2800);
 }
 
-function copyToClipboard(text, label = 'Item') {
-  navigator.clipboard.writeText(text).then(() => {
-    showToast(`${label} copied to clipboard!`, 'fa-solid fa-copy');
-  }).catch(() => {
-    showToast(`Failed to copy ${label}`, 'fa-solid fa-triangle-exclamation');
-  });
-}
-
-// --------------------------------------------------------------------------
-// 3. Typing Effect for Hero Roles
-// --------------------------------------------------------------------------
-class TypingEffect {
-  constructor(element, words, waitTime = 2000) {
-    this.element = element;
-    this.words = words;
-    this.waitTime = waitTime;
-    this.wordIndex = 0;
-    this.txt = '';
-    this.isDeleting = false;
-    this.type();
-  }
-
-  type() {
-    const current = this.wordIndex % this.words.length;
-    const fullTxt = this.words[current];
-
-    if (this.isDeleting) {
-      this.txt = fullTxt.substring(0, this.txt.length - 1);
-    } else {
-      this.txt = fullTxt.substring(0, this.txt.length + 1);
-    }
-
-    this.element.innerHTML = this.txt;
-
-    let typeSpeed = 100;
-    if (this.isDeleting) {
-      typeSpeed /= 2;
-    }
-
-    if (!this.isDeleting && this.txt === fullTxt) {
-      typeSpeed = this.waitTime;
-      this.isDeleting = true;
-    } else if (this.isDeleting && this.txt === '') {
-      this.isDeleting = false;
-      this.wordIndex++;
-      typeSpeed = 400;
-    }
-
-    setTimeout(() => this.type(), typeSpeed);
+async function copyToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast('Email address copied to clipboard.', 'fa-solid fa-copy');
+  } catch {
+    showToast('Copy was unavailable. Email me at atifkhani397@gmail.com.', 'fa-solid fa-triangle-exclamation');
   }
 }
 
-// --------------------------------------------------------------------------
-// 4. Main Event Listeners & UI Components
-// --------------------------------------------------------------------------
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Typing Effect with Production Agent Titles
-  const typingEl = document.getElementById('typing-text');
-  if (typingEl) {
-    new TypingEffect(typingEl, [
-      'AI Agent Architect',
-      'Autonomous Web Agent Engineer',
-      'LLM Orchestrator',
-      'Full-Stack Web AI Systems Dev',
-      'Multi-Agent System Engineer'
-    ]);
+function setupReveals() {
+  const elements = qsa('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach(element => element.classList.add('active'));
+    return;
   }
-
-  // Sticky Navbar Scroll Detection
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
-  // Mobile Hamburger Toggle
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const navMenu = document.getElementById('nav-menu');
-
-  if (hamburgerBtn && navMenu) {
-    hamburgerBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      hamburgerBtn.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-        hamburgerBtn.classList.remove('active');
-        navMenu.classList.remove('active');
-      }
-    });
-
-    const navLinks = document.querySelectorAll('.nav-link, .nav-cta');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburgerBtn.classList.remove('active');
-        navMenu.classList.remove('active');
-      });
-    });
-  }
-
-  // ScrollSpy Active Link Updates
-  const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset;
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
-      const sectionId = current.getAttribute('id');
-      const navLink = document.querySelector(`.nav-menu a[href*=${sectionId}]`);
-
-      if (navLink) {
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-          navLink.classList.add('active');
-        }
-      }
-    });
-  });
-
-  // Scroll Reveal Observer
-  const revealElements = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        
-        const progressBars = entry.target.querySelectorAll('.skill-progress-bar');
-        progressBars.forEach(bar => {
-          const targetWidth = bar.getAttribute('data-progress');
-          bar.style.width = targetWidth;
-        });
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
+  elements.forEach(element => observer.observe(element));
+}
 
-  revealElements.forEach(el => revealObserver.observe(el));
-  document.querySelectorAll('.skill-category-card').forEach(card => revealObserver.observe(card));
+function setupNavigation() {
+  const navbar = qs('#navbar');
+  const menu = qs('#nav-menu');
+  const hamburger = qs('#hamburger-btn');
+  const links = qsa('.nav-link');
+  const sections = qsa('main section[id]');
 
-  // About Section Tabs
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabContents = document.querySelectorAll('.tab-content');
+  const onScroll = () => navbar?.classList.toggle('scrolled', window.scrollY > 30);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tabId = btn.getAttribute('data-tab');
-
-      tabBtns.forEach(b => b.classList.remove('active'));
-      tabContents.forEach(c => c.classList.remove('active'));
-
-      btn.classList.add('active');
-      const activeContent = document.getElementById(`tab-${tabId}`);
-      if (activeContent) {
-        activeContent.classList.add('active');
-      }
-    });
+  hamburger?.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', String(open));
   });
+  links.forEach(link => link.addEventListener('click', () => {
+    menu?.classList.remove('open');
+    hamburger?.classList.remove('active');
+    hamburger?.setAttribute('aria-expanded', 'false');
+  }));
 
-  // Projects Filter Controls
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filterValue = btn.getAttribute('data-filter');
-      projectCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        if (filterValue === 'all' || cardCategory === filterValue) {
-          card.classList.remove('hide');
-        } else {
-          card.classList.add('hide');
-        }
-      });
+  if (!('IntersectionObserver' in window)) return;
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
     });
-  });
+  }, { rootMargin: '-35% 0px -55% 0px' });
+  sections.forEach(section => spy.observe(section));
+}
 
-  // Project Modal Handling
-  const projectModal = document.getElementById('project-modal');
-  const modalCloseBtn = document.getElementById('modal-close');
-  const modalImg = document.getElementById('modal-img');
-  const modalTitle = document.getElementById('modal-title');
-  const modalCategory = document.getElementById('modal-category');
-  const modalDesc = document.getElementById('modal-desc');
-  const modalProblem = document.getElementById('modal-problem');
-  const modalArchitecture = document.getElementById('modal-architecture');
-  const modalImpact = document.getElementById('modal-impact');
-  const modalTags = document.getElementById('modal-tags');
-  const modalDemoLink = document.getElementById('modal-demo-link');
-  const modalGithubLink = document.getElementById('modal-github-link');
+function setupFilters() {
+  const buttons = qsa('.filter-btn');
+  const cards = qsa('.project-card');
+  buttons.forEach(button => button.addEventListener('click', () => {
+    buttons.forEach(item => item.classList.remove('active'));
+    button.classList.add('active');
+    const filter = button.dataset.filter;
+    cards.forEach(card => card.classList.toggle('hide', filter !== 'all' && card.dataset.category !== filter));
+  }));
+}
 
-  function openModal(projectId) {
-    const data = PROJECTS_DATA[projectId];
-    if (!data) return;
+function setupProjectModal() {
+  const overlay = qs('#project-modal');
+  const modal = qs('.modal-container', overlay);
+  const visual = qs('#modal-visual');
+  const category = qs('#modal-category');
+  const title = qs('#modal-title');
+  const description = qs('#modal-desc');
+  const problem = qs('#modal-problem');
+  const architecture = qs('#modal-architecture');
+  const impact = qs('#modal-impact');
+  const tags = qs('#modal-tags');
+  const github = qs('#modal-github-link');
 
-    modalImg.src = data.image;
-    modalImg.alt = data.title;
-    modalTitle.textContent = data.title;
-    modalCategory.textContent = data.category;
-    modalDesc.textContent = data.description;
-    
-    modalProblem.textContent = data.problem || "High system latency under burst load.";
-    modalArchitecture.textContent = data.architecture || "Modular microservices architecture.";
-    modalImpact.textContent = data.impact || "Improved throughput by 40%.";
-
-    modalTags.innerHTML = data.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-
-    if (data.demoUrl) {
-      modalDemoLink.href = data.demoUrl;
-      modalDemoLink.style.display = 'inline-flex';
-    } else {
-      modalDemoLink.style.display = 'none';
-    }
-
-    if (data.githubUrl) {
-      modalGithubLink.href = data.githubUrl;
-      modalGithubLink.style.display = 'inline-flex';
-    } else {
-      modalGithubLink.style.display = 'none';
-    }
-
-    projectModal.classList.add('active');
-    projectModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    projectModal.classList.remove('active');
-    projectModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = 'auto';
-  }
-
-  projectCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const projectId = card.getAttribute('data-project-id');
-      openModal(projectId);
-    });
-  });
-
-  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
-
-  if (projectModal) {
-    projectModal.addEventListener('click', (e) => {
-      if (e.target === projectModal) closeModal();
-    });
-  }
-
-  // --------------------------------------------------------------------------
-  // 5. Command Palette (Cmd + K) Implementation
-  // --------------------------------------------------------------------------
-  const cmdKOverlay = document.getElementById('cmd-k-overlay');
-  const cmdKBtn = document.getElementById('cmd-k-btn');
-  const cmdKInput = document.getElementById('cmd-k-input');
-  const cmdKItems = document.querySelectorAll('.cmd-k-item');
-
-  function openCmdK() {
-    cmdKOverlay.classList.add('active');
-    cmdKOverlay.setAttribute('aria-hidden', 'false');
-    cmdKInput.value = '';
-    cmdKInput.focus();
-    filterCmdK('');
-  }
-
-  function closeCmdK() {
-    cmdKOverlay.classList.remove('active');
-    cmdKOverlay.setAttribute('aria-hidden', 'true');
-  }
-
-  function filterCmdK(query) {
-    const q = query.toLowerCase();
-    cmdKItems.forEach(item => {
-      const text = item.textContent.toLowerCase();
-      if (text.includes(q)) {
-        item.style.display = 'flex';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  }
-
-  if (cmdKBtn) cmdKBtn.addEventListener('click', openCmdK);
-
-  if (cmdKInput) {
-    cmdKInput.addEventListener('input', (e) => filterCmdK(e.target.value));
-  }
-
-  cmdKItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const action = item.getAttribute('data-action');
-      const target = item.getAttribute('data-target');
-
-      closeCmdK();
-
-      if (action === 'nav' && target) {
-        const section = document.querySelector(target);
-        if (section) section.scrollIntoView({ behavior: 'smooth' });
-      } else if (action === 'copy-email') {
-        copyToClipboard('atifkhani397@gmail.com', 'Email');
-      } else if (action === 'resume') {
-        showToast('Downloading AI Agent Resume...', 'fa-solid fa-download');
-      }
-    });
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-      e.preventDefault();
-      if (cmdKOverlay.classList.contains('active')) {
-        closeCmdK();
-      } else {
-        openCmdK();
-      }
-    } else if (e.key === 'Escape') {
-      if (cmdKOverlay && cmdKOverlay.classList.contains('active')) closeCmdK();
-      if (projectModal && projectModal.classList.contains('active')) closeModal();
-    }
-  });
-
-  if (cmdKOverlay) {
-    cmdKOverlay.addEventListener('click', (e) => {
-      if (e.target === cmdKOverlay) closeCmdK();
-    });
-  }
-
-  // --------------------------------------------------------------------------
-  // 6. Interactive Dev Lab Logic (Agent Loop Simulator)
-  // --------------------------------------------------------------------------
-  const labRunBtn = document.getElementById('lab-run-btn');
-  const labLangSelect = document.getElementById('lab-language');
-  const labCodeOutput = document.getElementById('lab-code-output');
-
-  const LAB_CODE_SIMULATION = {
-    webagent: `<span class="terminal-prompt">$ aura-agent --target="https://target-portal.com" --goal="Automate Data Entry"</span><br>
-<span class="terminal-comment"># Autonomous Web Agent Execution Graph (Playwright + LangGraph):</span><br>
-1. [Playwright] Launching headless Chromium session...<br>
-2. [DOM Analyzer] Scanned target portal -> Located form input \`#customer-id\` & button \`#btn-submit\`<br>
-3. [LangGraph] Decision State -> Trigger click action & fill payload schema<br>
-4. [Pydantic] Validated server response code 200 OK<br>
-<span class="terminal-comment"># Result: Agent workflow completed in 1.4s with 100% execution accuracy.</span>`,
-
-    python: `<span class="terminal-prompt">$ crewai run --agents=researcher,coder,evaluator</span><br>
-<span class="terminal-comment"># Multi-Agent Consensus Graph Output:</span><br>
-[Agent 1: Web Researcher] Querying vector DB for target domain docs...<br>
-[Agent 2: Code Synthesis] Generating FastAPI Async endpoint with Pydantic...<br>
-[Agent 3: Evaluator] Running unit tests -> All 12 assertions passed.<br>
-<span class="terminal-comment"># Swarm consensus reached in 2.1s.</span>`,
-
-    sql: `<span class="terminal-prompt">$ mcp-server --tool="vector-query"</span><br>
-<span class="terminal-comment"># Model Context Protocol (MCP) Live Query:</span><br>
-Connected to Qdrant Vector Engine on localhost:6333<br>
-Query: "Retrieve top 5 embeddings for autonomous agent state recovery"<br>
-<span class="terminal-comment"># Returned 5 items (Cosine Similarity: 0.942).</span>`
+  const closeModal = () => {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
   };
 
-  if (labRunBtn && labLangSelect && labCodeOutput) {
-    labRunBtn.addEventListener('click', () => {
-      const selected = labLangSelect.value;
-      labCodeOutput.innerHTML = LAB_CODE_SIMULATION[selected] || 'Executing agent loop...';
-      showToast(`Executed ${selected.toUpperCase()} Autonomous Agent Loop!`, 'fa-solid fa-robot');
-    });
-  }
+  const openModal = (card) => {
+    const data = PROJECTS_DATA[card.dataset.projectId];
+    if (!data) return;
+    const clone = qs('.project-thumb', card).cloneNode(true);
+    clone.classList.add('modal-project-thumb');
+    visual.replaceChildren(clone);
+    category.textContent = data.category;
+    title.textContent = data.title;
+    description.textContent = data.description;
+    problem.textContent = data.problem;
+    architecture.textContent = data.architecture;
+    impact.textContent = data.impact;
+    tags.replaceChildren(...[...card.querySelectorAll('.project-tags span')].map(tag => {
+      const chip = document.createElement('span');
+      chip.textContent = tag.textContent;
+      return chip;
+    }));
+    github.href = data.github;
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    qs('#modal-close').focus();
+  };
 
-  // Live Glassmorphism Controller Sliders
-  const sliderBlur = document.getElementById('slider-blur');
-  const sliderOpacity = document.getElementById('slider-opacity');
-  const valBlur = document.getElementById('val-blur');
-  const valOpacity = document.getElementById('val-opacity');
-
-  if (sliderBlur && sliderOpacity) {
-    sliderBlur.addEventListener('input', (e) => {
-      const v = e.target.value;
-      valBlur.textContent = v;
-      document.documentElement.style.setProperty('--card-blur', `${v}px`);
-    });
-
-    sliderOpacity.addEventListener('input', (e) => {
-      const v = e.target.value;
-      valOpacity.textContent = v;
-      document.documentElement.style.setProperty('--card-opacity-val', `${v / 100}`);
-    });
-  }
-
-  // --------------------------------------------------------------------------
-  // 7. Copy to Clipboard Triggers
-  // --------------------------------------------------------------------------
-  document.querySelectorAll('.copy-trigger').forEach(card => {
-    card.addEventListener('click', () => {
-      const textToCopy = card.getAttribute('data-copy');
-      if (textToCopy) copyToClipboard(textToCopy, 'Contact info');
+  qsa('.project-card').forEach(card => {
+    card.addEventListener('click', () => openModal(card));
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openModal(card);
+      }
     });
   });
+  qs('#modal-close')?.addEventListener('click', closeModal);
+  overlay?.addEventListener('click', event => { if (event.target === overlay) closeModal(); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && overlay.classList.contains('active')) closeModal(); });
+  modal?.addEventListener('click', event => event.stopPropagation());
+}
 
-  // --------------------------------------------------------------------------
-  // 8. Contact Form Handling
-  // --------------------------------------------------------------------------
-  const contactForm = document.getElementById('contact-form');
-  const formFeedback = document.getElementById('form-feedback');
+function setupCommandPalette() {
+  const overlay = qs('#cmd-k-overlay');
+  const input = qs('#cmd-k-input');
+  const items = qsa('.cmd-k-item');
+  const trigger = qs('#cmd-k-btn');
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+  const close = () => {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+  };
+  const open = () => {
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    input.value = '';
+    items.forEach(item => item.style.display = 'flex');
+    window.setTimeout(() => input.focus(), 20);
+  };
+  const filter = value => {
+    const query = value.toLowerCase().trim();
+    items.forEach(item => item.style.display = item.textContent.toLowerCase().includes(query) ? 'flex' : 'none');
+  };
 
-      setTimeout(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-        
-        formFeedback.className = 'form-feedback success';
-        formFeedback.innerHTML = '<i class="fa-solid fa-circle-check"></i> Thank you! Your message has been sent successfully. I will get back to you shortly.';
-        contactForm.reset();
-        showToast('Message submitted successfully!', 'fa-solid fa-paper-plane');
+  trigger?.addEventListener('click', open);
+  input?.addEventListener('input', event => filter(event.target.value));
+  items.forEach(item => item.addEventListener('click', () => {
+    if (item.dataset.action === 'copy-email') copyToClipboard('atifkhani397@gmail.com');
+    if (item.dataset.action === 'nav') document.querySelector(item.dataset.target)?.scrollIntoView({ behavior: 'smooth' });
+    close();
+  }));
+  overlay?.addEventListener('click', event => { if (event.target === overlay) close(); });
+  document.addEventListener('keydown', event => {
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); overlay.classList.contains('active') ? close() : open(); }
+    if (event.key === 'Escape' && overlay.classList.contains('active')) close();
+  });
+}
 
-        setTimeout(() => {
-          formFeedback.style.display = 'none';
-        }, 5000);
-      }, 1200);
-    });
-  }
+function setupTrace() {
+  const button = qs('#lab-run-btn');
+  const output = qs('#lab-code-output');
+  const lines = [
+    '<span class="trace-prompt">$</span> system.accept("complex research question")',
+    '<span class="trace-step">01  route</span>   splitting goal into verifiable sub-tasks',
+    '<span class="trace-step">02  retrieve</span> hybrid search → grounded source set',
+    '<span class="trace-step">03  reason</span>  checking evidence against output schema',
+    '<span class="trace-step">04  ship</span>    returning a useful next action <span class="trace-prompt">✓</span>'
+  ];
+  button?.addEventListener('click', () => {
+    button.disabled = true;
+    button.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Running trace…';
+    output.innerHTML = '';
+    let index = 0;
+    const addLine = () => {
+      if (index >= lines.length) {
+        button.disabled = false;
+        button.innerHTML = '<i class="fa-solid fa-rotate-right"></i> Run again';
+        qs('.trace-status').textContent = 'complete';
+        showToast('Trace completed with a grounded output.', 'fa-solid fa-wand-magic-sparkles');
+        return;
+      }
+      output.insertAdjacentHTML('beforeend', `${lines[index]}<br>`);
+      index += 1;
+      window.setTimeout(addLine, 260);
+    };
+    qs('.trace-status').textContent = 'running';
+    addLine();
+  });
+}
 
-  // Back to Top Button
-  const backToTopBtn = document.getElementById('back-to-top');
-  if (backToTopBtn) {
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+function setupCopyActions() {
+  qsa('.copy-trigger').forEach(button => button.addEventListener('click', () => copyToClipboard(button.dataset.copy)));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupReveals();
+  setupNavigation();
+  setupFilters();
+  setupProjectModal();
+  setupCommandPalette();
+  setupTrace();
+  setupCopyActions();
 });
